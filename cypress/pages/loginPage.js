@@ -4,7 +4,7 @@ class loginPage {
             usernameField: "input+ .oxd-form-row .oxd-input--active",
             passwordField: ".oxd-form-row+ .oxd-form-row .oxd-input--active",
             loginButton: "[type= 'submit']",
-            wrongCredentialAlert: "[role= 'alert']",
+            wrongCredentialAlert: ".oxd-alert--error",
         }
 
         return selectors
@@ -16,9 +16,13 @@ class loginPage {
     }
 
     loginWithAnyUser(username, password) {
-        cy.get(this.selectorsList().usernameField).type('Admin')
-        cy.get(this.selectorsList().passwordField).type('admin123')
+        cy.get(this.selectorsList().usernameField).type(username)
+        cy.get(this.selectorsList().passwordField).type(password)
         cy.get(this.selectorsList().loginButton).click()
+    }
+
+    checkAccessInvalid() {
+        cy.get(this.selectorsList().wrongCredentialAlert)
     }
 }
 

@@ -12,7 +12,7 @@ npm install
 > it is necessary to have **node** installed
 
 ## Running
-`` badh
+`` bash
 # You open the Cypress UI
 npx cypress open
 
